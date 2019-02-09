@@ -31,7 +31,7 @@ def birth(parent1, parent2):
     experience = 0+max(0,parent1+parent2-100)
     material = random.choice(parent1.material,parent2.material)
     type = random.choice(parent1.type,parent2.type)
-    strength = randint(.4*(parent1.strength+parent2.strength),.65*(parent1.))
+    strength = randint(.4*(parent1.strength+parent2.strength),.65*(parent1.strength+parent2.strength))
     baby = Bridge(name = None, rarity = rar, )
     return baby
 
