@@ -17,13 +17,20 @@ class Bridge:
             #2 = metal
         self.material = material
         #integer between 0 and 5
-
+            #0 = beam
+            #1 = truss
+            #2 = arch
+            #3 = cantilever
+            #4 = suspension
+            #5 = cable-stayed
         self.type = type
-        #strength between 0 and 1000
-
+        #integer between 0 and 1000
         self.strength = strength
+        #integer between 0 and 200000
         self.length = length
+        #integer between 1 and 10
         self.width = width
+        #integer between 0 and 9
         self.height = height
 
 def birth(parent1, parent2):
