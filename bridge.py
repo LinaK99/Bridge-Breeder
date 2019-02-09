@@ -42,4 +42,4 @@ def birth(parent1, parent2):
     baby = Bridge(name = None, rarity = rar, )
     return baby
 
-#def built(price):
+def built(price):
