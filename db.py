@@ -1,21 +1,23 @@
 import sqlite3
 from sqlite3 import Error
 
+from bridge import Bridge
+
 def create_connection(db_file):
     try:
         conn = sqlite3.connect(db_file)
         print("Connection Successful.")
         c = conn.cursor()
         c.execute("CREATE TABLE bridges(\
-            NAME varchar(128),\
-            RARITY int,\
-            EXPERIENCE int,\
-            MATERIAL int,\
-            TYPE int,\
-            STRENGTH int,\
-            LENGTH int,\
-            WIDTH int,\
-            HEIGHT int
+            name varchar(128),\
+            rarity int,\
+            experience int,\
+            material int,\
+            type int,\
+            strength int,\
+            length int,\
+            width int,\
+            height int\
             )")
     except Error as e:
         print(e)
@@ -30,16 +32,20 @@ def connect(db_file):
 
 def add_bridge(conn, bridge):
     c = conn.cursor()
-    c.execute("INSERT INTO bridges VALUES \
-        '{bridge.name}',\
-        '{bridge.rarity}',\
-        '{bridge.experience}',\
-        '{bridge.material}',\
-        '{bridge.type}',\
-        '{bridge.strength}',\
-        '{bridge.length}',\
-        '{bridge.width}',\
-        '{bridge.height}")
+    sql = "INSERT INTO bridges(name, rarity, experience,\
+    material, type, strength, length, width, height) VALUES\
+        ('" + bridge.name + "',"\
+        + str(bridge.rarity) + ","\
+        + str(bridge.experience) + ","\
+        + str(bridge.material) + ","\
+        + str(bridge.type) + ","\
+        + str(bridge.strength) + ","\
+        + str(bridge.length) + ","\
+        + str(bridge.width) + ","\
+        + str(bridge.height) + ")"
+    c.execute(sql)
+    conn.commit()
+    print(sql)
 
 
 if __name__ == '__main__':
