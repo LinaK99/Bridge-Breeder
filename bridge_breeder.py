@@ -1,8 +1,12 @@
 import pygame
 
+from bridge import Bridge
+import db
+
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 800
 GAME_NAME = "Bridge Breeder"
+DB_PATH = "/home/alex/Programs/Python/Bridge-Breeder/bridges.db"
 
 def main():
 	pygame.init()
@@ -12,6 +16,14 @@ def main():
 
 	done = False
 	clock = pygame.time.Clock()
+
+	#TEST
+	db.create_connection(DB_PATH)
+	c = db.connect(DB_PATH)
+	b = Bridge("b1", 1, 1, 1, 1, 1, 1, 1, 1)
+	db.add_bridge(c, b)
+	#/TEST
+	
 	while not done:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
