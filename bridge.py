@@ -4,7 +4,7 @@ class Bridge:
         #can't be longer than 128 characters
         if (name is None):
             name = random.choice(["Archie","Bridget","Trussel"])
-        elif:
+        else:
             self.name = name
 
         #will be an integer between 0 and 10
